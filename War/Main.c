@@ -89,10 +89,10 @@ void dealRandomCards(Card playersHand[DECK])
 	//Create a new deck for player
 	Card newDeck[4][DECK];
 	createNewDeck(newDeck);
-	
+
 
 	//Distribute random cards into the players deck
-	for (int i=0;i < DECK;i++)
+	for (int i = 0; i < DECK; i++)
 	{
 		int ran = rand();
 		Card random = newDeck[ran % 4][ran % DECK];
@@ -272,6 +272,10 @@ void showWinner(int numPlayers, int totalScores[MAX_PLAYERS])
 	int highest = 0;
 	int highPlayer = 999;
 
+	//Header for scoreboard
+	printf("Placment \tPlayer\t\tPoints\n");
+	printf("=========================================================\n");
+
 	for (int i = 0; i < numPlayers; i++)
 	{
 		for (int j = 0; j < numPlayers; j++)
@@ -282,7 +286,7 @@ void showWinner(int numPlayers, int totalScores[MAX_PLAYERS])
 				highPlayer = j;
 			}
 		}
-		printf("%d\tPlayer %d\t%d Points\n", i + 1, highPlayer + 1, highest);
+		printf("%d.\t\tPlayer %d\t%d Points\n", i + 1, highPlayer + 1, highest);
 
 		totalScores[highPlayer] = -1;
 		highest = -1;
